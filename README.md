@@ -1,7 +1,12 @@
 # Handwritten-Document-to-Digital-Text
 Develop a classifier that recognizes handwritten text and converts it into digital text using OCR (Optical Character Recognition) technology. The system will take a handwritten PDF file as input and output the converted digital text in a .txt file format.
 
-# Handwritten Text Recognition OCR
+Note on Project Completion
+I want to be transparent and honest that this project is not fully completed due to time constraints. I had only 3 days to work on it, and it was a challenging task. In fact, I even had to skip my last night of sleep to meet the deadline. Despite the time pressure, I have submitted the project with the progress I was able to make.
+
+As I am still in the process of learning, I acknowledge that there are areas for improvement, and I am open to any suggestions, corrections, or updates. I am eager to continue learning and enhancing this project. If you notice any issues or have recommendations, please feel free to reach out.
+
+Thank you for understanding.
 
 ## Project Overview
 This project aims to build an OCR (Optical Character Recognition) system capable of recognizing handwritten text in images and PDFs. The model uses a combination of **Convolutional Neural Networks (CNNs)**, **Long Short-Term Memory (LSTM)** networks, and **CTC (Connectionist Temporal Classification)** loss to achieve state-of-the-art performance in handwritten text recognition. The system is deployed using **Streamlit** for easy user interaction.
@@ -27,3 +32,8 @@ Install the required dependencies by running:
 
 ```bash
 pip install -r requirements.txt
+
+## Acknowledgements
+
+- The architecture is inspired by various OCR research papers and implementations using CNN, LSTM, and CTC.
+- Thank you to the community for providing datasets like IAM Handwriting for training the model.
