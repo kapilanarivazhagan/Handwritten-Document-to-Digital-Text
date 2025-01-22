@@ -1,0 +1,61 @@
+OCR System Architecture
+├── User Input Layer
+│   ├── Upload Image
+│   │   ├── image.jpg (Size: 1500x2000 px, Format: JPG)
+│   │   ├── image.png (Size: 1200x1600 px, Format: PNG)
+│   │   └── Resized Size: (128x32 px, Grayscale, Channels: 1)
+│   └── Upload PDF
+│       ├── pdf_file.pdf (Pages: 10, Format: PDF)
+│       ├── pdf_page_1.png (Size: 1200x1600 px, Format: PNG)
+│       ├── pdf_page_2.png (Size: 1200x1600 px, Format: PNG)
+│       └── Resized Size: (128x32 px, Grayscale, Channels: 1)
+│
+├── Image Preprocessing Layer
+│   ├── Resizing
+│   │   ├── Resized Image Shape: (128, 32) --> 2D Image
+│   │   └── Output Shape: (128, 32, 3) --> 3D Image (Channels: 3 for RGB)
+│   ├── Grayscale Conversion
+│   │   ├── Image Shape After Conversion: (128, 32, 1) --> 1D Channel for Grayscale
+│   ├── Normalization
+│   │   ├── Image Shape After Normalization: (128, 32, 1) --> Pixel Range Normalized: [0, 1]
+│   └── Noise Removal
+│       ├── Image After Denoising (Median/Gaussian Filter Applied)
+│       └── Final Shape: (128, 32, 1)
+│
+├── OCR Model Layer
+│   ├── Load Model
+│   │   └── Model File: ocr_model.h5 (Pre-trained Model)
+│   ├── Model Prediction
+│   │   ├── Input Shape: (128, 32, 1)
+│   │   ├── Output Shape: (Number of Characters, Sequence Length)
+│   │   └── Example Output: Predicted Text: "hello world"
+│
+├── Post-Processing Layer
+│   ├── Text Conversion
+│   │   └── Output Text Shape: (String) --> Final Extracted Text from Image
+│   └── Spell Correction
+│       ├── Output: "Hello World" (Corrected for Minor Mistakes)
+│       └── Output Shape: (String) --> Final Text after Spell Correction
+│
+├── Streamlit Interface
+│   ├── Display Uploaded Image
+│   │   ├── Image Shape Displayed: (128, 32, 1) (Grayscale)
+│   │   └── Image Path: /uploaded_image.png
+│   ├── Show Detected Text Regions
+│   │   └── Image with Bounding Boxes Shape: (128, 32, 3) (Channels for Bounding Boxes)
+│   ├── Display Extracted Text
+│   │   └── Extracted Text: "Hello, this is OCR processing"
+│   └── Download Text Option
+│       └── Output File: /extracted_text.txt
+│
+└── GitHub Deployment
+    ├── Code
+    │   ├── ocr_app.py (Streamlit App)
+    │   └── model.py (Model Loading & Prediction)
+    ├── Model
+    │   └── ocr_model.h5 (Pre-trained Model)
+    ├── Documentation
+    │   ├── README.md (Setup, Instructions, Explanation)
+    │   └── setup_instructions.md (Environment Setup, Dependencies)
+    └── GitHub Repository
+        └── https://github.com/kapilanarivazhagan/ocr-project
